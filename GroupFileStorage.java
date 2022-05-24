@@ -53,9 +53,6 @@ public class GroupFileStorage {
 				}
 				String [] words = groupString.split(",");
 				group.setGroupName(words[0]);
-				
-
-				
 				for (int i = 1; i < words.length;i +=4) {
 					Student st = new Student();
 					st.setName(words[i]);
@@ -65,13 +62,15 @@ public class GroupFileStorage {
 					st.setGroupName(words[0]);
 					group.addStudent(st);
 				}
-				
-				
 			}
 		}
-		
-		
 		return group;
+	}
+	public static File findFileByGroupName(String groupName, File workFolder) throws FileNotFound {
+		File f = new File(workFolder, groupName + ".csv");
+		if (f.exists()) {
+			return(f);
+		} throw new FileNotFound("File " + f.getAbsolutePath() + " Not foud");
 	}
 }
 
