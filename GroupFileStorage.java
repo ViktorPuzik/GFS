@@ -53,10 +53,11 @@ public class GroupFileStorage {
 				}
 				String [] words = groupString.split(",");
 				group.setGroupName(words[0]);
-				Student st = new Student();
+				
 
 				
 				for (int i = 1; i < words.length;i +=4) {
+					Student st = new Student();
 					st.setName(words[i]);
 					st.setLastName(words[i+1]);
 					st.setGender(Gender.valueOf(words[i+2]));
